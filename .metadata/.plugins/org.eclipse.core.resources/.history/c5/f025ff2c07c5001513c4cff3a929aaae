@@ -60,9 +60,6 @@ public class PM_GameOfLife
         }
         return boardCopy;
     }
-    public static int[] getMouseClickCoords(){
-    	
-    }
     public static void main(String[] args){
         StdDraw.setCanvasSize(1000,1000);
         StdDraw.setScale(0,100);
