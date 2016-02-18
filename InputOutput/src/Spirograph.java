@@ -36,7 +36,6 @@ public class Spirograph {
         for (double t = 0.0; t < 12.6; t += 0.01) {
             double x = (R+r) * Math.cos(t) - (r+a) * Math.cos(((R+r)/r)*t);
             double y = (R+r) * Math.sin(t) - (r+a) * Math.sin(((R+r)/r)*t);
-            double degrees = -Math.toDegrees((R+r)/r)*t;
             StdDraw.circle(x, y, r); //Used to be StdDraw.Image(coords, skew)
             //StdDraw.rotate(+Math.toDegrees((R+r)/r)*t);
             StdDraw.show();

@@ -37,6 +37,7 @@ public class PM_Ex18
         int mode = sc.nextInt();
         System.out.println("What is the length of a graph?");
         int N = sc.nextInt();
+        sc.close();
         StdDraw.setCanvasSize(1000,1000); // Make the screen size large enough that the graph is a high-res graph
         if (mode == 1){//Making a 1 graph canvas
             StdDraw.setScale(0,N+2); //Set the scale because the drawing is as follows: _[]_ , where the _ are spaces and the [] is the graph. The +2 is for the 2 _'s

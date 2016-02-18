@@ -39,12 +39,11 @@ public class PM_GameOfLife
         boolean[] conditions = {board[i+1][j], board[i-1][j],board[i][j+1], board[i][j-1], board[i+1][j+1], board[i-1][j-1], board[i+1][j-1], board[i-1][j+1]};
         int counter = 0;
         for (boolean condition : conditions) if(condition) counter++;
-            if(counter ==3){
+            if(counter ==3 && board[i][j] == false){
             	return true;
             }
-            else{
-            	return false;
-            }
+            else if(board[i][j] == true && (counter == 2 || counter ==3)) return true;
+            else return false;
     }
     public static boolean[][] refreshBoard(boolean[][] board){
     	boolean[][] boardCopy = new boolean[board.length][board[0].length];
@@ -60,8 +59,8 @@ public class PM_GameOfLife
         }
         return boardCopy;
     }
-    public static int[] getMouseClickCoords(){
-    	
+    public static void getMouseClickCoords(){
+    	//do something
     }
     public static void main(String[] args){
         StdDraw.setCanvasSize(1000,1000);

@@ -14,6 +14,7 @@ public static void main(String[] args){
 Scanner sc = new Scanner(System.in);
 System.out.println("What is the width of the desired magic sqare?");
 int side = sc.nextInt();
+sc.close();
 if(!(side%2==0)){
 int row = 0; //the top of the square
 int column = side/2; //the middle of the square

@@ -11,6 +11,7 @@ public class PM_Calendar{
         int month = sc.nextInt();
         System.out.println("Please enter the year (yyyy)");
         int year = sc.nextInt();
+        sc.close();
         int[] returnValue = dayOfTheWeek(month, year);
         int dayOfWeek = returnValue[0];dayOfWeek -=1;
         if(dayOfWeek<0) dayOfWeek = 6;
@@ -19,7 +20,6 @@ public class PM_Calendar{
         int[] DAYS_OF_MONTHS = new int[] {31,28 + leapYearNum,31,30,31,30,31,31,30,31,30,31};
         int numDays = DAYS_OF_MONTHS[month-1];
         boolean doneOnce = false;
-        String spacer ;
         for (int a = 1; a <= numDays;){
             for (int b = 0; b <7; b++){
                 if ((! doneOnce) && (b<dayOfWeek)){
@@ -29,7 +29,9 @@ public class PM_Calendar{
                     doneOnce = true;
                     b=dayOfWeek;
                 }
-                if (a<10) {
+                @SuppressWarnings("unused")
+				String spacer;
+				if (a<10) {
                     //System.out.print(" ");
                     spacer = " ";
                 }
@@ -120,17 +122,6 @@ public class PM_Calendar{
         while(dayOfWeek > 6){ //before subtracting the largest multiple of 7 from it
             dayOfWeek -=7;
         }
-        String day = "None"; //Again, debugger can be annoying
-        /*
-        if (dayOfWeek == 1){day = "Sunday";}
-        if(dayOfWeek ==2){day = "Monday";}
-        if (dayOfWeek ==3){day = "Tuesday";}
-        if (dayOfWeek ==4){day = "Wednesday";}
-        if (dayOfWeek ==5){day = "Thursday";}
-        if(dayOfWeek ==6){day = "Friday";}
-        if(dayOfWeek ==0){day = "Saturday";}
-        */
-
         int[] returnList = new int[] {(int) dayOfWeek, leapYearNum};
         return returnList;
     }

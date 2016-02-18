@@ -98,7 +98,8 @@ public class PM_Histogram
         if(min<Math.pow(10,i))i--;
         return min-min%Math.pow(10,i);
     }
-    public static void main(String[] args){
+    @SuppressWarnings("unused")
+	public static void main(String[] args){
         StdOut.println("Please enter your interval for the histogram");
         double intervalLength = StdIn.readDouble();
         StdOut.println("Please enter all of your numbers");

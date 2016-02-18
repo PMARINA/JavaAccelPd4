@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment0.text=\r\n\ Blah\ Blah\ Blah\r\n\ @params\ param1\ does\ this\r\n\ @returns\ returns\ stuff\r\n\ @throws\ noInputError\ no\ input\ given\ by\ the\ user\r\n
+numComments=1

@@ -48,7 +48,8 @@ public class PM_HandsOnTest
             pmPrintf(part1, Integer.toString(sum), 17); //PmPrintf takes care of 
         }
     }
-    public static void ExCredOutput1(int[][] input){
+    @SuppressWarnings("unused")
+	public static void ExCredOutput1(int[][] input){
         System.out.println("1.");
         pmPrintf("Employee", "# Hours", 17);
 
@@ -81,7 +82,8 @@ public class PM_HandsOnTest
     }
     public static void main(String[] args){
         int[][] input = getInput();
-
+        output1(input);
+        output2(input);
         //System.out.println();
         //output2(input);
     }

@@ -36,16 +36,17 @@ public class PM_Connect4
         System.out.println("\tGood luck and have fun!!");
         
         System.out.println("a)continue\nb)quit");
-        if(sc.next().equals("b")){System.out.println("Thanks for playing"); return false;}
+        if(sc.next().equals("b")){sc.close();System.out.println("Thanks for playing"); return false;}
         for (int i = 0; i<3; i++){
             System.out.println("...");
+            sc.close();
         }
         return true;
     }
     private static int getMove(){
         System.out.println("In which column would you like to place your tile?");
-        Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
+        int returnValue =  StdIn.readInt();
+        return returnValue;
     }
     private static boolean fourInArow(int[] row){
         if(row.length<4) return false;
@@ -62,7 +63,6 @@ public class PM_Connect4
             }
             if(fourInArow(column)) return false;
         }
-        int checkCounter = 0;
         for(int i = 0; i<6; i++){
             int[] row = new int[7];
             for(int j = 0; j<7; j++){
@@ -72,7 +72,13 @@ public class PM_Connect4
         }
         int[] diag = new int[7];
         int[] otherDiag = new int[7];
-        boolean notDone; boolean stillNotDone;
+        boolean notDone; boolean stillNotDone = false;
+        diag[0] = 1;
+        otherDiag[0] = 1;
+        notDone = true;
+        if(!notDone && stillNotDone){
+        	System.out.println("Imsitupid");
+        }
         for(int jFake = 0; jFake<(gameBoard.length-1) * 2; jFake++){
             int j = jFake;
             if(jFake >= gameBoard.length)j = jFake - gameBoard.length;
