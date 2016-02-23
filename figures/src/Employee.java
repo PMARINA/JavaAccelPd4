@@ -1,8 +1,13 @@
 /**
- * 6. Implement a class Employee. An employee has a name (a string) and a salary
- * (a double). Write a default constructor, a constructor with two parameters
- * (name and salary), and methods to return the name and salary. Write a small
- * program that tests your class.
+ * Exercise P2.8. Implement a class Employee. An employee has a name (a string)
+ * and a salary (a double). Write a default constructor, a constructor with two
+ * parameters (name and salary), and methods to return the name and salary.
+ * Write a small program that tests your class. Exercise P2.9. Enhance the class
+ * in the preceding exercise by adding a method raiseSalary (double byPe recent)
+ * that raises the employee's salary by a certain percentage. Sample usage:
+ * Employee harry = new Employee("Hacker, Harry", 55000); harry. raiseSalary(10)
+ * ; // Harry gets a 10% raise
+ * 
  * 
  * @author PMARINA
  * @version Feb 16, 2016
@@ -12,7 +17,7 @@ public class Employee {
 	private double salary;
 
 	/**
-	 * Creates an employee object
+	 * Creates an employee object, using a default constructor
 	 */
 	public Employee() { // Default constructor...
 		// Do nothing
@@ -38,6 +43,7 @@ public class Employee {
 	}
 
 	/**
+	 * A getter for the name of the employee
 	 * 
 	 * @return name of the employee
 	 */
@@ -46,6 +52,7 @@ public class Employee {
 	}
 
 	/**
+	 * A setter for the name of the employee
 	 * 
 	 * @param givenName
 	 *            The new name of the employee
@@ -55,6 +62,7 @@ public class Employee {
 	}
 
 	/**
+	 * A getter for the salary of the worker.
 	 * 
 	 * @return salary of the worker
 	 */
@@ -63,6 +71,7 @@ public class Employee {
 	}
 
 	/**
+	 * A setter for the salary of an employee.
 	 * 
 	 * @param givenSalary
 	 *            The new salary of the worker
@@ -85,5 +94,25 @@ public class Employee {
 			salary = givenSalary; // Set the salary
 		} else
 			throw (negativeSalary); // Throw the error
+	}
+
+	/**
+	 * A salary raise for the employee!
+	 * 
+	 * @param percent
+	 *            - The percent increase in the given employee's income, out of
+	 *            100
+	 * @throws Throwable
+	 *             - In the event of a negative percent, the system will throw
+	 *             an error - Negative Raise specified
+	 */
+	public void raiseSalary(double percent) throws Throwable {
+		if (percent > 0) { // If the raise is actually a raise,
+			salary += salary * percent / 100; // Increase the salary by the
+												// percent. Since percent is out
+												// of 100, instead of 1, divide
+												// percent by 100.
+		} else // If the raise is negative...
+			throw new Throwable("Negative Raise specified"); // throw an error.
 	}
 }

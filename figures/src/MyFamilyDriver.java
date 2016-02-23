@@ -57,7 +57,7 @@ public class MyFamilyDriver {
 			System.out.println(b.getWhatAmIDoing());
 			c.addToFridge(oldTrash, "soda");
 			System.out.println(c.getWhatAmIDoing());
-			d.removeFromFridge(oldTrash, "soda");
+			d.requestFromFridge("soda", c, oldTrash);
 			System.out.println(d.getWhatAmIDoing());
 		} catch (Throwable a) {
 			a.printStackTrace();

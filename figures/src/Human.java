@@ -42,6 +42,7 @@ public class Human {
 	private String whatAmIDoing = "Nothing";
 	private ArrayList<String> actions = new ArrayList<String>();
 	private double age;
+	private ArrayList<String> pockets = new ArrayList<String>();
 
 	/**
 	 * @param gName
@@ -195,5 +196,30 @@ public class Human {
 	public String getWhatAmIDoing() {
 		whatAmIDoing = actions.get(actions.size() - 1);
 		return whatAmIDoing;
+	}
+
+	public void give(String item, Human person) {
+		boolean done = this.pockets.remove(item);
+		if (done){
+			actions.add(this.name + " is giving " + item + " to " + person.name);
+			person.pockets.add(item);
+		}
+		else
+			actions.add(this.name + " tried to give " + item + " to " + person.name + ", but failed.");
+	}
+
+	public void take(String item, Human person) {
+		boolean done = this.pockets.add(item);
+		if(done){
+			actions.add(this.name + " is taking " + item + " from " + person.name);
+			person.pockets.add(item);
+		}
+		else actions.add(this.name + " tried to give " + item + " to " + person.name + ", but failed");
+	}
+	public void requestFromFridge(String item, Human person, Refrigerator fridge) {
+		person.removeFromFridge(fridge, item);
+		person.give(item, person);
+		person.actions.add(person.name + " gave " + item + " to " + this.name);
+		this.actions.add(this.name + " requested " + item + " from " + person.name);
 	}
 }
