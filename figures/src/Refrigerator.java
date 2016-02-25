@@ -43,6 +43,7 @@ public class Refrigerator {
 	private double setTemp;
 	private double tempChange = 0;
 	private boolean fridgeOpen = false;
+	@SuppressWarnings("unused")
 	private boolean lightOn = false;
 	private int capacity;
 	private String brand;
