@@ -1,0 +1,6 @@
+CocaCola $1.25
+CocaCola Diet $1.25
+Pepsi $1.25
+Pesi Diet $1.25
+Root Beer $1.25
+Brisk $1.25

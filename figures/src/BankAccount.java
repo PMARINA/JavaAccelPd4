@@ -1,17 +1,18 @@
 /**
- * 3. Write a program that constructs a bank account, deposits $1000, withdraws
- * $500, withdraws another $400, and then prints the remaining balance. 4. Add a
- * method void addInterest(double rate) to the BankAccount class that adds
- * interest at the given rate. For example, after the statements. BankAccount
- * momsSavings = new BankAccount(1000); momsSavings.addInterest(10); // 10%
- * interest the balance in momsSavings is $1,100. 5. Write a class (This isn't
- * savings act, but oh well) SavingsAccount that is similar to the BankAccount
- * class, except that it has an added instance variable interest. Supply a
- * constructor that sets both the initial balance and the interest rate. Supply
- * a method addInterest (with no explicit parameter) that adds interest to the
- * account. Write a program that constructs a savings account with an initial
- * balance of $1,000 and interest rate 10%. Then apply the addInterest method
- * five times and print the resulting balance.
+ * 1. Make the following changes to the BankAccount class:
+ * 
+ * a. Include a print statement in the getBalance() method to show the reference
+ * to the implicit * parameter. Include “from method getBalance”
+ * 
+ * b. Include a print statement in both constructors, “from method default
+ * constructor” and “from constructor with parameter”.
+ * 
+ * 2. Implement a test class, ThisOperatorTest. In this test, create an object
+ * of the class BankAccount and print it.
+ * 
+ * 3. Include a commented paragraph at the end of the test class making a
+ * conclusion on the output. Make sure you explain what the this operator does
+ * in the AST and the driver and compare them. *
  * 
  * @author PMARINA
  * @version Feb 11, 2016
@@ -20,6 +21,17 @@ public class BankAccount {
 	private double balance;
 	private String name;
 	private double interestRate;
+
+	/**
+	 * Default constructor of the object bank account. Sets the balance and
+	 * interest rates to 0. It also sets the name to "".
+	 */
+	public BankAccount() {
+		System.out.println("From default constructor @" + this);
+		this.balance = 0;
+		this.name = "";
+		this.interestRate = 0;
+	}
 
 	/**
 	 * This constructor takes in a starting balance and creates a user account
@@ -31,6 +43,7 @@ public class BankAccount {
 	 * @return null
 	 */
 	public BankAccount(double sBalance) {
+		System.out.println("From BankAccount constructor with one parameter: @" + this);
 		balance = sBalance;
 	}
 
@@ -53,6 +66,7 @@ public class BankAccount {
 	 * @return null
 	 */
 	public BankAccount(double sBalance, double interest) throws Throwable {
+		System.out.println("From constructor with string, double constructor @" + this);
 		Throwable impossibleBalance = new Throwable("Negative Starting Balance Specified");
 		if (balance >= 0)
 			balance = sBalance;
@@ -84,6 +98,7 @@ public class BankAccount {
 	 * @return null
 	 */
 	public BankAccount(double sBalance, double interest, String nom) throws Throwable {
+		System.out.println("From BankAccount constructor taking a double, a double, and a string @" + this);
 		Throwable impossibleBalance = new Throwable("Negative Starting Balance Specified");
 		if (balance >= 0)
 			balance = sBalance;
@@ -210,6 +225,11 @@ public class BankAccount {
 		return interestRate;
 	}
 
+	public double getBalance() {
+		System.out.println("From method: getBalance() @" + this);
+		return balance;
+	}
+
 	/**
 	 * This method prints out the account's balance, with the account's name.
 	 * 
@@ -219,6 +239,35 @@ public class BankAccount {
 	public void printBalance() {
 		double roundedBalDbl = Math.round(balance * 100.00) / 100.00;
 		String roundedBalStr = Double.toString(roundedBalDbl);
-		System.out.println("The balance in " + getName() + "'s account is: " + roundedBalStr);
+		System.out.println("The balance in " + getName() + "'s account is: " + roundedBalStr + " @" + this);
+	}
+
+	/**
+	 * This method transfers money from one bank account to another.
+	 * 
+	 * @param funds
+	 *            - the funds to be transfered
+	 * @param otherAcct
+	 *            - the acct to which the funds will be transfered
+	 * @throws Throwable
+	 *             - in the event that the funds cannot be transfered
+	 */
+	public void transfer(double funds, double otherBalance) throws Throwable {
+		if (funds >= 0 && this.balance >= funds) { // if the funds can be
+													// transfered...
+			this.balance -= funds;
+			otherBalance += funds;
+		} else {
+			if (funds < 0) // just for throwing the right exception
+				throw new Throwable("Negative Transfer Amount Specified");
+			else
+				throw new Throwable("Not Enough Funds in Original BankAccount to be Transferred");
+		}
+		System.out.println("From transfer( ), current object @: " + this); // the
+																			// print
+																			// statements
+																			// you
+																			// requested
+		System.out.println("From transfer( ), otherAccount @: " + otherBalance);
 	}
 }
