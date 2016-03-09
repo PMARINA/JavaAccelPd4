@@ -1,0 +1,73 @@
+﻿School Application
+Period 4
+
+Classwork:
+
+
+  a. The Student ADT:
+
+        i. init “classes” array to constant numCourses = 8
+
+        ii. create a new instance field, courseCount
+
+        Implement the following methods:
+
+          i. public void addCourse(Course aCourse):
+
+          ii. public String getAllInfo(), it should return name, age, gap, grade and a list of all classes.
+
+          iii. public String getCourses(), it returns all courses names.
+ 
+
+  c. The Course ADT:
+
+       i. Overload constructor so subject, teacher and period are the input arguments.
+
+
+  d. The School ADT:
+
+       i. Implement the method public String getAllStudentNames(). It should return all the students names.
+
+       ii. Implement the method public String getAllStuInfo(). It should return name, age, gap, grade and classes for all students.
+
+
+* main:
+
+  a. Create a new class, (the driver) MySchool
+
+  b. Copy the main method from School and remove it.
+
+  c. Create 3 or 4 more Course objects with your own information.
+
+  d. Create 2 or 3 more Teacher objects with your own information.
+
+  e. Create 5 or 6 more Student objects with your own information.
+
+  f. Add courses to at least 2 students.
+
+  g. Add all students to PHS.
+
+  h. Add all teachers to PHS.
+
+  i. Add 2 courses to 4 students.
+
+  j. Add the 4 students to a teacher.
+
+  k. Print all students names from the teacher above.
+  l. Print all PHS students names.
+
+
+
+
+Homework:
+
+* Documentation for each method in each ADT. Include at least one comment line describing the purpose of the method.
+
+* Make all the instance fields private.
+
+* Implement the following methods:
+  getAllTeachersName()
+  
+
+Note: classes instance field should have a better name. Bad name choice.
+
