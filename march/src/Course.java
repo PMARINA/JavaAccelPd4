@@ -81,7 +81,7 @@ public class Course {
 		return currSize;
 	}
 
-	/**
+	/**	
 	 * A getter for the maximum size of the course
 	 * 
 	 * @return - the maximum size of the course
@@ -118,8 +118,8 @@ public class Course {
 	/**
 	 * Increments the number of students currntly taking the course
 	 */
-	public void increment() {
-		currSize++;
+	public void increment(int size) {
+		currSize += size;
 	}
 
 	/*

@@ -49,7 +49,7 @@ public class Student {
 			if (classes[c.getPeriod() - 1] == null)
 				if (c.getCurrSize() - 1 <= c.getMaxSize()) {
 					classes[c.getPeriod() - 1] = c;
-					c.increment();
+					c.increment(1);
 				} else
 					System.out.println("There are too many students!");
 			else {
